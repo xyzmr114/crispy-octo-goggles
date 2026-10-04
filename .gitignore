@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.pt
+checkpoints/
+data/raw/lmsys_chatbot_arena.parquet
+.vscode/
+.idea/
