@@ -23,7 +23,7 @@ from src.evaluate import evaluate_model
 RESULTS_DIR = "results"
 os.makedirs(RESULTS_DIR, exist_ok=True)
 CHECKPOINTS_DIR = "checkpoints"
-os.makedirs(CHECKPOINTS_DIR, exist_ok=True)
+os.makedirs(CHECKPOINTS_DIR, exist_ok=True)  # model weights land here
 
 
 def run_rq1_experiments():
