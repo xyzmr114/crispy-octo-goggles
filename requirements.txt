@@ -6,3 +6,5 @@ scikit-learn>=1.3.0
 scipy>=1.10.0
 matplotlib>=3.7.0
 tqdm>=4.65.0
+
+# torch cpu wheels are enough for these model sizes
