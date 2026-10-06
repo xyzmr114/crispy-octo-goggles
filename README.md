@@ -60,7 +60,7 @@ Dataset B, in the wild. lmsys/chatbot_arena_conversations, 4,800 balanced conver
 
 ## Running it
 
-Needs Python 3.10+.
+Python 3.10 or newer. CPU is enough, the models here are small, a GPU just makes the BiLSTM epochs faster.
 
 ```bash
 pip install -r requirements.txt
