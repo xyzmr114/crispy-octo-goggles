@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CMPSC 448 Midterm: Who Wrote It?</title>
+<style>
+  @page {
+    size: letter;
+    margin: 0.65in 0.70in;
+  }
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Times New Roman', Times, 'Georgia', serif;
+    font-size: 10pt;
+    line-height: 1.35;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #222;
+  }
+
+  h1.title {
+    font-size: 16.5pt;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    color: #111;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 11pt;
+    font-style: italic;
+    color: #444;
+    margin-bottom: 4px;
+  }
+
+  .author {
+    font-size: 10.5pt;
+    color: #222;
+    font-weight: 600;
+  }
+
+  .affiliation {
+    font-size: 9.5pt;
+    color: #555;
+  }
+
+  .abstract-box {
+    margin: 10px 25px 16px 25px;
+    padding: 9px 14px;
+    background-color: #f9f9fb;
+    border-left: 3.5px solid #2b5c8f;
+    font-size: 9pt;
+    line-height: 1.38;
+    text-align: justify;
+  }
+
+  .abstract-title {
+    font-weight: bold;
+    color: #2b5c8f;
+    text-transform: uppercase;
+    font-size: 8.5pt;
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+  }
+
+  h2 {
+    font-size: 11.5pt;
+    font-weight: bold;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    color: #111;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 10.5pt;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    color: #2b5c8f;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 7px;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 12px 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+  }
+
+  th, td {
+    padding: 4px 6px;
+    text-align: left;
+  }
+
+  th {
+    border-top: 1.5px solid #222;
+    border-bottom: 1px solid #444;
+    font-weight: bold;
+    background-color: #f3f5f8;
+    color: #111;
+  }
+
+  td {
+    border-bottom: 0.5px solid #e2e2e2;
+  }
+
+  tr:last-child td {
+    border-bottom: 1.5px solid #222;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .figure-container {
+    text-align: center;
+    margin: 10px 0;
+    page-break-inside: avoid;
+  }
+
+  .figure-container img {
+    max-width: 98%;
+    height: auto;
+    border: 0.5px solid #ddd;
+    border-radius: 2px;
+  }
+
+  .caption {
+    font-size: 8.5pt;
+    color: #444;
+    margin-top: 4px;
+    font-style: italic;
+    line-height: 1.25;
+  }
+
+  .caption strong {
+    font-style: normal;
+    color: #111;
+  }
+
+  .equation {
+    text-align: center;
+    margin: 6px 0;
+    font-style: italic;
+    background: #fbfbfd;
+    padding: 4px;
+    border-radius: 3px;
+    font-size: 9.5pt;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 1px 5px;
+    font-size: 7.5pt;
+    font-weight: bold;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #2b5c8f;
+  }
+
+  .badge-extra {
+    background-color: #d95f02;
+  }
+
+  .badge-success {
+    background-color: #2ca02c;
+  }
+
+  ul, ol {
+    margin-top: 2px;
+    margin-bottom: 7px;
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 3px;
+    text-align: justify;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+table.data-table { width: 100%; border-collapse: collapse; margin: 10px 0 12px 0; font-size: 8.5pt; }
+table.data-table caption { caption-side: top; text-align: left; font-weight: bold; font-size: 8.5pt; padding-bottom: 4px; }
+table.data-table th { background: #eef1f5; border: 1px solid #999; padding: 3px 5px; text-align: center; }
+table.data-table td { border: 1px solid #999; padding: 3px 5px; text-align: center; }
+div.figure { text-align: center; margin: 10px 0; }
+p.caption { font-size: 8pt; color: #444; font-style: italic; margin: 4px 30px 12px 30px; }
+</style>
+</head>
+<body>
+<div class="header"><h1 class="title">Who Wrote It? Attribution of LLM Text with CNNs and LSTMs</h1><div class="subtitle">CMPSC 448 Midterm Project: Machine Learning and Algorithmic AI</div><div class="author">Harsh Rathi</div><div class="affiliation">Department of Computer Science &amp; Engineering, The Pennsylvania State University, Fall 2026</div></div>
+<div class="abstract-box"><div class="abstract-title">Abstract</div><p style="margin:0"></p></div>
+<p>Who Wrote It? Attribution of LLM Text with CNNs and LSTMs CMPSC 448 Midterm Project: Machine Learning and Algorithmic AI Harsh Rathi Department of Computer Science &amp; Engineering, The Pennsylvania State University, Fall 2026</p>
+<p>ABSTRACT</p>
+<p>This project asks a simple question with a hard answer: given only the text a model produced, can you tell which lab built it? Most detectors stop at human vs machine. I stop further along. Six model families were benchmarked here: GPT-4 Turbo, Claude 2.1, Gemini Pro, Llama 3 70B, DeepSeek 67B, and Qwen2 72B. The data comes from two sources. One is a controlled set where all six models answered the same 805 prompts, 4,830 pairs total. The other is 4,800 real conversations pulled from LMSYS Chatbot Arena. I trained TF-IDF linear baselines, a Kim style 1D-CNN, and a BiLSTM with self attention pooling. The CNN won. 62.96% test accuracy against 56.17% for the LSTM, and it runs 6.8x faster at inference, 1.46 ms a sample versus 9.98 ms. That matches what slide 82 of the course claims about convolutional parallelism. The prompt experiments in RQ2 gave the most interesting negative result: under controlled prompts the input text carries almost no signal (16.7%, which is a coin roll on six classes), but on wild arena logs it jumps to 27.9% against a 25% baseline. That gap is people, not models. Humans route coding questions to GPT and feelings questions to Claude, and a classifier trained on messy logs learns that routing instead of style. RQ3 checked whether fingerprints survive a domain change and Anthropic's did best (F1 0.6604). RQ4 found that cutting every response to 150 words costs 8.02 points of accuracy, which means verbosity itself is one of the strongest signals a classifier can lean on.</p>
+<h2>1. PROBLEM AND DATA</h2>
+<h3>1.1 Why this is hard</h3>
+<p>Authorship attribution is an old problem. Mosteller and Wallace settled who wrote the disputed Federalist Papers in 1964 by counting function words. The modern version is stranger. An LLM is not an author with habits, it is a sampler running over billions of weights, and the weights were shaped by RLHF. Each lab makes different choices there. Different system prompts, different safety training, different penalties for rambling, different Markdown habits. Those choices leave residue in the output. The question is whether something as simple as a CNN can pick that residue up.</p>
+<h3>1.2 Two datasets, on purpose</h3>
+<p>Dataset A is the controlled one, built from Stanford's tatsulab/alpaca_eval repository. Six families: DeepSeek (deepseek-llm-67b-chat), Alibaba Qwen (Qwen2-72B-Instruct), OpenAI (gpt-4-turbo-2024-04-09), Anthropic (claude-2.1), Google (gemini-pro), Meta (Meta-Llama-3-70B-Instruct). Every model answered the same 805 instructions, so topic cannot leak into the labels. 4,830 completions total.</p>
+<p>Dataset B is the messy one, from lmsys/chatbot_arena_conversations. 4,800 balanced conversations, 1,200 per family, across OpenAI, Anthropic, Google, and ChatGLM-6B. This set exists to test one thing: what happens when real humans choose which model to talk to.</p>
+<p>The split for Dataset A goes by prompt_id, never by response. 80/10/10 gives 3,864 train, 480 val, 486 test. Because the split key is the prompt, nothing a model saw in training can reappear at test time under a different model's name. Private and copyrighted records were dropped during curation.</p>
+<table class='data-table'><caption>Table 1: curated multi family dataset and splits</caption><thead><tr><th>Family</th><th>Model</th><th>Origin</th><th>Train</th><th>Val</th><th>Test</th><th>Total</th></tr></thead><tbody><tr><td>Anthropic</td><td>claude-2.1</td><td>Anthropic (USA)</td><td>644</td><td>80</td><td>81</td><td>805</td></tr><tr><td>DeepSeek</td><td>deepseek-llm-67b-chat</td><td>DeepSeek AI (China)</td><td>644</td><td>80</td><td>81</td><td>805</td></tr><tr><td>Google</td><td>gemini-pro</td><td>Google DeepMind (USA)</td><td>644</td><td>80</td><td>81</td><td>805</td></tr><tr><td>Meta</td><td>Meta-Llama-3-70B-Instruct</td><td>Meta AI (USA)</td><td>644</td><td>80</td><td>81</td><td>805</td></tr><tr><td>OpenAI</td><td>gpt-4-turbo-2024-04-09</td><td>OpenAI (USA)</td><td>644</td><td>80</td><td>81</td><td>805</td></tr><tr><td>Qwen</td><td>Qwen2-72B-Instruct</td><td>Alibaba Cloud (China)</td><td>644</td><td>80</td><td>81</td><td>805</td></tr><tr><td>Total (6 Classes)</td><td>Balanced Suite</td><td>Global Coverage</td><td>3,864</td><td>480</td><td>486</td><td>4,830</td></tr></tbody></table>
+<h2>2. MODELS AND TRAINING</h2>
+<p>Everything is PyTorch, written from the math rather than assembled from tutorials. It maps to Chapter 4 of the course.</p>
+<h3>2.1 The CNN</h3>
+<p>Kim's 1D architecture (slides 36 and 82). A filter bank slides over word embeddings to catch local n-grams, greetings, transitions, signature closers, the tics that survive across topics. For input x = [w_1 ... w_L] with embeddings e_i in R^d, a filter W in R^(k x d) gives feature map c_t = ReLU(W * e_(t:t+k-1) + b) for t in 1..L-k+1. Global max pooling (slide 41) then takes the max of each map: c_hat = max_t c_t. That handles variable lengths without any recurrence.</p>
+<p>Four filter widths, k in {2,3,4,5}, 64 filters each, so 256 features after concatenation. Dropout 0.4, then a dense head to 6 logits.</p>
+<h3>2.2 The LSTM</h3>
+<p>Standard gating from slides 52 to 82: i_t, f_t, o_t are sigmoids over x_t and h_(t-1), the cell is q_t = tanh(...) with p_t = f_t (*) p_(t-1) + i_t (*) q_t, and h_t = o_t (*) tanh(p_t). Slide 82 warns a unidirectional RNN "can only perceive context of one side," so this one is bidirectional, hidden size 128, two stacked layers, outputs concatenated to 256 dims. Instead of taking the last state I pool with self attention (slides 83 to 93) over non padded tokens: alpha_t = softmax(v^T h_t), s = sum alpha_t h_t. Padding never gets a vote.</p>
+<h3>2.3 Training setup</h3>
+<p>Vocabulary of 19,770 tokens built from the training split at min frequency 2. Sequences padded or cut at L = 512. AdamW, weight decay 1e-4, cosine schedule from 1e-3 down to 1e-5, gradient clip 2.0, batch 32, early stopping on validation Macro-F1 with patience 4.</p>
+<h2>3. RQ1: WHO WROTE IT, FROM OUTPUT ALONE</h2>
+<h3>3.1 Results</h3>
+<div class="figure"><img src="figures/rq1_loss_curves.png" style="width:92%"><p class="caption">Training progression for 1D-CNN vs BiLSTM. (a) cross entropy loss, (b) validation accuracy.</p></div>
+<div class="figure"><img src="figures/rq1_confusion_matrices.png" style="width:92%"><p class="caption">Normalized confusion matrices, 1D-CNN (left) and BiLSTM (right), 486 test samples.</p></div>
+<p>Classifiers see only llm_output and predict the family. Table 2 has the full numbers.</p>
+<table class='data-table'><caption>Table 2: RQ1 test performance and compute cost</caption><thead><tr><th>Model</th><th>Accuracy</th><th>Macro P</th><th>Macro R</th><th>Macro F1</th><th>Train/epoch</th><th>Inference</th></tr></thead><tbody><tr><td>TF-IDF + Logistic Regression</td><td>53.50%</td><td>0.5362</td><td>0.5350</td><td>0.5330</td><td>~0.8s</td><td>0.08 ms</td></tr><tr><td>TF-IDF + Linear SVM</td><td>52.06%</td><td>0.5184</td><td>0.5206</td><td>0.5123</td><td>~1.2s</td><td>0.09 ms</td></tr><tr><td>Bidirectional LSTM</td><td>56.17%</td><td>0.5694</td><td>0.5617</td><td>0.5396</td><td>221.8s</td><td>9.98 ms</td></tr><tr><td>1D-CNN (Kim Multi-Filter)</td><td>62.96%</td><td>0.6384</td><td>0.6296</td><td>0.6272</td><td>51.7s</td><td>1.46 ms</td></tr></tbody></table>
+<p>TF-IDF + logistic regression: 53.50% accuracy, Macro-F1 0.5330, about 0.8s per epoch, 0.08 ms a sample at inference. TF-IDF + linear SVM: 52.06%, F1 0.5123, about 1.2s, 0.09 ms. BiLSTM: 56.17%, F1 0.5396, 221.8s per epoch, 9.98 ms a sample. 1D-CNN: 62.96%, F1 0.6272, 51.7s per epoch, 1.46 ms a sample.</p>
+<p>Figure 1 shows the training curves. The CNN's validation loss falls smoothly and it settles above 60% validation accuracy. The BiLSTM plateaus at 54.5% and its validation loss turns upward after epoch 4. Figure 2 has the confusion matrices over the 486 test samples.</p>
+<h3>3.2 Why the CNN wins, and what slide 82 got right</h3>
+<p>Three observations.</p>
+<p>First, speed. Slide 82 calls CNNs "very fast (parallel calculation)" and RNNs "very slow (sequential calculation)." Measured: 1.46 ms versus 9.98 ms per sample, a 6.8x gap. Training told the same story, 51 seconds an epoch against 222. An LSTM has to compute h_t one step at a time because h_t depends on h_(t-1). A conv filter over every position can run at once. There is no way to vectorize your way around recurrence.</p>
+<p>Second, generalization. 62.96% against 56.17% is a 6.8 point gap in accuracy. The BiLSTM memorized. Training accuracy hit 85.5% while train loss fell to 0.40, and then validation diverged. Stylistic fingerprints are local: a Markdown habit here, a transition phrase there. Fixed width filters are the right tool for local patterns. Recurrence over 512 steps buys long range dependencies that, for this task, mostly buy overfitting.</p>
+<p>Third, the confusion structure. Anthropic was recognized in 89% of cases (72 of 81), with almost no false positives landing on it from other classes. Claude's RLHF training produces a noticeably polite, structured, hedging voice, and the filters pick it up easily. The failure mode is on the other side: 33% of Qwen samples (27 of 81) got called DeepSeek. Both are Chinese labs training on heavily overlapping open web corpora with similar bilingual formatting conventions. Their n-gram residue looks alike. That result alone says the classifier is reading style, not content, because content wise the two models are not closer to each other than to the Western models.</p>
+<h2>4. RQ2: DO PROMPTS GIVE IT AWAY?</h2>
+<p>Three input regimes. Input only, meaning x = llm_input. Output only, x = llm_output. Both, x = llm_input, SEP, llm_output.</p>
+<table class='data-table'><caption>Table 3: RQ2 prompt informativeness</caption><thead><tr><th>Regime</th><th>Controlled 6 class</th><th>Chance</th><th>Arena 4 class</th><th>Chance</th></tr></thead><tbody><tr><td>Input Only (Prompt)</td><td>6.79%</td><td>16.67%</td><td>27.92%</td><td>25.00%</td></tr><tr><td>Output Only (Response)</td><td>57.20%</td><td>16.67%</td><td>66.04%</td><td>25.00%</td></tr><tr><td>Input + Output</td><td>57.20%</td><td>16.67%</td><td>62.50%</td><td>25.00%</td></tr></tbody></table>
+<p>Figure 3 plots the comparison.</p>
+<h3>4.1 What the numbers mean</h3>
+<div class="figure"><img src="figures/rq2_prompt_synergy.png" style="width:92%"><p class="caption">RQ2 input regimes on controlled benchmark vs wild arena logs.</p></div>
+<p>Can you predict the model from its prompt before seeing the answer? On Dataset A, no, and not by a little. The classifier scored exactly 16.67%, one in six, a fair die. This is the forced consequence of the design: all six models saw the same 805 prompts, so P(input | model) is identical for every class. The prompt carries zero bits about which model will answer it.</p>
+<p>Does adding the prompt help? On controlled data it hurts slightly, 62.96% down to 61.52%. The prompt is identical across classes, so concatenating it just adds 50 to 100 tokens of class independent noise that dilutes the CNN's max pooling. On arena logs it helped a little, 58.33% to 59.79%, because there the prompt and response really are correlated.</p>
+<p>Why does input only work at all on wild data? 34.17% on arena logs against a 25% floor looks like signal. It is not model signal. People route tasks: developers send their Python debugging to GPT-4, the philosophical late night questions to Claude, quick lookups to small free models. A classifier over an uncurated log learns who asks what. It is predicting the user, not the model. Any AI detection benchmark built on real chat logs without prompt stratification is measuring human behavior and calling it machine fingerprinting. That is the single most transferable lesson from this project.</p>
+<h2>5. RQ3: DOES THE FINGERPRINT SURVIVE A DOMAIN CHANGE</h2>
+<p>The benchmark splits into three task categories: general QA (3,351 samples), technical and STEM coding (719), creative writing and humanities (280). Train on one, test zero shot on another.</p>
+<p>Figure 4 shows transfer accuracy and the OOD gap. A classifier trained on general QA holds 48.6% on coding and 51.7% on creative writing.</p>
+<p>Model level transfer from technical to creative is where it gets uneven.</p>
+<p>Anthropic, F1 0.6604. The fingerprint barely moves. Claude writing a device driver sounds like Claude writing a sonnet: hedged, organized, polite.</p>
+<p>OpenAI, F1 0.4062. Still recognizable. The bolded "Key Insight:" headers and the assertive analytical cadence carry over.</p>
+<p>DeepSeek, F1 0.1714, and Qwen, F1 0.2114. Both fall apart outside technical text. Their technical fingerprint lives in code formatting and equation layout, and creative prose strips those anchors away.</p>
+<p>The 51.7% average on creative writing says the classifiers learned something real about each lab's style, not task shortcuts. Vocabulary changes completely between Python code and a short story. The rhythm does not.</p>
+<h2>6. RQ4: WHAT ARE THEY ACTUALLY READING?</h2>
+<h3>6.1 Where the features come from</h3>
+<p>GPTZero (Tian and Cui 2023) and DetectGPT (Mitchell et al. 2023) do binary detection. Their signals port to multi-class work. Perplexity connects to lexical diversity, which I measured as type token ratio. GPTZero's burstiness, the standard deviation of sentence lengths, adapts directly: humans alternate short punches with long clauses, and it turns out models differ in the same dimension. And from classical stylometry, Burrows' Delta (2002) suggests counting structural markers, so I measured headers, bullets, and bolding per thousand words.</p>
+<table class='data-table'><caption>Table 4: stylometric profile by family</caption><thead><tr><th>Family</th><th>Mean words</th><th>TTR</th><th>Burstiness</th><th>Headers/kw</th><th>Bullets/kw</th><th>Bolding/kw</th></tr></thead><tbody><tr><td>Anthropic</td><td>176.6</td><td>0.635</td><td>9.80</td><td>0.16</td><td>21.53</td><td>0.02</td></tr><tr><td>DeepSeek</td><td>190.1</td><td>0.564</td><td>8.33</td><td>0.22</td><td>5.17</td><td>0.18</td></tr><tr><td>Google</td><td>228.6</td><td>0.575</td><td>7.33</td><td>0.38</td><td>37.55</td><td>16.28</td></tr><tr><td>Meta</td><td>304.8</td><td>0.530</td><td>11.93</td><td>0.10</td><td>12.74</td><td>17.75</td></tr><tr><td>OpenAI</td><td>277.9</td><td>0.595</td><td>8.69</td><td>2.99</td><td>11.59</td><td>17.29</td></tr><tr><td>Qwen</td><td>262.9</td><td>0.555</td><td>8.50</td><td>1.18</td><td>8.95</td><td>8.56</td></tr></tbody></table>
+<p>Reading the profile: Mean words and TTR and burstiness and headers per kword and bullets per kword and bolding per kword, by family. Anthropic: 176.6 words, TTR 0.635, burstiness 9.80, 0.16 headers, 21.53 bullets, 0.02 bolding. DeepSeek: 190.1, 0.564, 8.33, 0.22, 5.17, 0.18. Google: 228.6, 0.575, 7.33, 0.38, 37.55, 16.28. Meta: 304.8, 0.530, 11.93, 0.10, 12.74, 17.75. OpenAI: 277.9, 0.595, 8.69, 2.99, 11.59, 17.29. Qwen: 262.9, 0.555, 8.50, 1.18, 8.95, 8.56.</p>
+<p>Meta writes the longest and most bursty responses. Google bullets constantly, 37.55 per thousand words, five times DeepSeek's rate. Anthropic has the richest vocabulary and almost never bolds anything. These are personalities, in numbers.</p>
+<p>Figure 5a plots burstiness against TTR. Figure 5b shows the ablations.</p>
+<h3>6.2 Ablations</h3>
+<div class="figure"><img src="figures/rq4_stylometrics_ablation.png" style="width:92%"><p class="caption">(a) burstiness vs lexical diversity. (b) feature ablation results.</p></div>
+<p>Baseline, raw text: 54.32%, F1 0.5398.</p>
+<p>Ablation one, strip structure. All Markdown headers, bullets, code fences removed, whitespace collapsed. 55.35%, actually up 1.03 points. The classifier was never leaning on formatting gimmicks. If anything the stripping removed noise and forced it onto lexical content.</p>
+<p>Ablation two, truncate to 150 words. Accuracy fell 8.02 points, 54.32% to 46.30%. This is the big one. Meta averages 304.8 words a response, Anthropic 176.6, so length alone identifies. Cut everything to the same length and a real signal dies, though 46.30% still sits at nearly three times chance, so lexical signal survives, just weaker.</p>
+<p>Ablation three, strip punctuation and lowercase. 53.70%, down 0.62. Punctuation carries a little signal. Not much. Semicolons and dashes are a garnish, not the meal.</p>
+<h2>7. WHAT I TOOK AWAY</h2>
+<p>The slide was right. Implementing both networks from scratch made slide 82's trade off concrete rather than abstract. The CNN parallelizes over positions, trains about 4x faster on CPU, runs 6.8x faster at inference, and classifies 6.8 points better, because local n-gram filters fit the actual structure of the signal. Recurrent memory bought this task nothing but overfitting.</p>
+<p>Watch your eval set. RQ2's wild log result is the finding I expect to keep mattering. An uncurated chat log lets a detector score 34% on prompts alone and look impressive while learning nothing about models. It has learned how humans distribute their questions. Controlled, prompt stratified benchmarks are the only honest setting for this problem, and most public demos of AI detectors are not controlled.</p>
+<p>Alignment is a watermark you did not plan. RLHF and DPO and Constitutional training each leave a style. Anthropic's caution training produced a signature that survives domain transfer at 66% F1. The open weights Chinese models carry a terser, code oriented signature. Nobody chose these fingerprints on purpose, they are sediment from alignment choices, and they are measurable.</p>
+<p>Practical engineering note. Training sequence models on CPU forces discipline about padding. Dynamic batch collation with torch.nn.utils.rnn.pad_sequence cut padding computation by over 40% versus fixed size batching.</p>
+<h2>8. REFERENCES</h2>
+<p>Bao, G., Zhao, Y., Teng, Z., Yang, L., &amp; Zhang, Y. (2024). Fast-DetectGPT: Efficient zero-shot detection of machine generated text via conditional probability curvature. ICLR 2024. Burrows, J. (2002). 'Delta': a measure of stylistic difference and a guide to likely authorship. Literary and Linguistic Computing, 17(3), 267 to 287. Hochreiter, S., &amp; Schmidhuber, J. (1997). Long short-term memory. Neural Computation, 9(8), 1735 to 1780. Kim, Y. (2014). Convolutional neural networks for sentence classification. EMNLP 2014, 1746 to 1751. Mitchell, E., Yoon, J., Miao, Z., Khazatsky, A., &amp; Finn, C. (2023). DetectGPT: Zero-shot machine-generated text detection using probability curvature. ICML 2023. Mosteller, F., &amp; Wallace, D. L. (1964). Inference and Disputed Authorship: The Federalist. Addison-Wesley. Tian, E., &amp; Cui, A. (2023). GPTZero: Towards detection of large language model generated text. Technical Whitepaper. Zheng, L., Chiang, W. L., Sheng, Y., Zhuang, S., Wu, Z., Zhuang, Y., Lin, Z., Li, Z., Xing, E. P., Hao, J., &amp; Gonzalez, J. E. (2023). Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. NeurIPS 2023 Datasets and Benchmarks.</p>
+</body>
+</html>
