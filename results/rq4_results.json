@@ -1,0 +1,73 @@
+{
+  "stylometric_summary": {
+    "Anthropic": {
+      "mean_word_count": 176.5848275862069,
+      "mean_ttr": 0.6349257277943698,
+      "mean_burstiness": 9.799158708706559,
+      "mean_header_density": 0.16242834342348675,
+      "mean_bullet_density": 21.534477072600332,
+      "mean_bold_density": 0.02440379350025793
+    },
+    "DeepSeek": {
+      "mean_word_count": 190.1448275862069,
+      "mean_ttr": 0.5644956560097325,
+      "mean_burstiness": 8.332535669067166,
+      "mean_header_density": 0.22245044444776074,
+      "mean_bullet_density": 5.165289709521391,
+      "mean_bold_density": 0.18095844684587573
+    },
+    "Google": {
+      "mean_word_count": 228.61379310344827,
+      "mean_ttr": 0.5751062274334133,
+      "mean_burstiness": 7.332833557460364,
+      "mean_header_density": 0.38343638220656906,
+      "mean_bullet_density": 37.553042928002625,
+      "mean_bold_density": 16.279418194603203
+    },
+    "Meta": {
+      "mean_word_count": 304.7903448275862,
+      "mean_ttr": 0.5296814641843043,
+      "mean_burstiness": 11.933207201754092,
+      "mean_header_density": 0.10113784827554578,
+      "mean_bullet_density": 12.738512474404164,
+      "mean_bold_density": 17.745157956125283
+    },
+    "OpenAI": {
+      "mean_word_count": 277.94206896551725,
+      "mean_ttr": 0.5952685538429343,
+      "mean_burstiness": 8.694111735079092,
+      "mean_header_density": 2.9948534025460085,
+      "mean_bullet_density": 11.592349269069802,
+      "mean_bold_density": 17.289736585656225
+    },
+    "Qwen": {
+      "mean_word_count": 262.9006896551724,
+      "mean_ttr": 0.5550352923370641,
+      "mean_burstiness": 8.502589253309528,
+      "mean_header_density": 1.1807700822579001,
+      "mean_bullet_density": 8.94528556791424,
+      "mean_bold_density": 8.55940610674498
+    }
+  },
+  "ablation_results": {
+    "raw_text": {
+      "accuracy": 0.5432098765432098,
+      "macro_f1": 0.5397578332682286
+    },
+    "structure_stripped": {
+      "accuracy": 0.5534979423868313,
+      "macro_f1": 0.5495508090368937,
+      "drop": -0.010288065843621408
+    },
+    "length_truncated_150w": {
+      "accuracy": 0.46296296296296297,
+      "macro_f1": 0.45979989234592406,
+      "drop": 0.08024691358024688
+    },
+    "punctuation_stripped": {
+      "accuracy": 0.5370370370370371,
+      "macro_f1": 0.5330233500761735,
+      "drop": 0.006172839506172756
+    }
+  }
+}

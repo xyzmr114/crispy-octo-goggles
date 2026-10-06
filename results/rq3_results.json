@@ -1,0 +1,32 @@
+{
+  "technical_to_creative": {
+    "in_domain_accuracy": 0.10119047619047619,
+    "in_domain_macro_f1": 0.10363216138318375,
+    "ood_accuracy": 0.33666666666666667,
+    "ood_macro_f1": 0.3227867511543922,
+    "generalization_gap": -0.23547619047619048,
+    "per_model_f1_ood": {
+      "Anthropic": 0.660377358490566,
+      "DeepSeek": 0.17142857142857143,
+      "Google": 0.2222222222222222,
+      "Meta": 0.26506024096385544,
+      "OpenAI": 0.40625,
+      "Qwen": 0.21138211382113822
+    }
+  },
+  "creative_to_technical": {
+    "in_domain_accuracy": 0.13333333333333333,
+    "in_domain_macro_f1": 0.13859649122807016,
+    "ood_accuracy": 0.3119047619047619,
+    "ood_macro_f1": 0.28776265319344935,
+    "generalization_gap": -0.17857142857142858
+  },
+  "qa_to_coding_and_creative": {
+    "qa_in_accuracy": 0.35767511177347244,
+    "qa_in_f1": 0.3619671803711424,
+    "qa_to_coding_accuracy": 0.4857142857142857,
+    "qa_to_coding_f1": 0.4840268078669468,
+    "qa_to_creative_accuracy": 0.5166666666666667,
+    "qa_to_creative_f1": 0.5108771797081023
+  }
+}
